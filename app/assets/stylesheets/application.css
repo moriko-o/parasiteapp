@@ -1,10 +1,374 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+:root {
+  color-scheme: dark;
+  --bg-gradient: radial-gradient(circle at top, #184c54 0%, #0d1b1e 35%, #060b0c 100%);
+  --surface-primary: rgba(9, 25, 28, 0.72);
+  --surface-secondary: rgba(13, 35, 39, 0.9);
+  --surface-highlight: rgba(28, 90, 90, 0.65);
+  --border-soft: rgba(94, 192, 191, 0.25);
+  --border-strong: rgba(94, 192, 191, 0.4);
+  --text-primary: #e8fbfb;
+  --text-secondary: rgba(221, 244, 243, 0.75);
+  --accent: #64d4d0;
+  --accent-strong: #7af6d6;
+  --danger: #f58f7c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+main {
+  display: block;
+}
+
+.landing {
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+  max-width: 1100px;
+}
+
+.hero {
+  position: relative;
+  padding: 3rem clamp(1.5rem, 2vw + 1rem, 3.5rem);
+  border-radius: 24px;
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(135deg, rgba(14, 50, 54, 0.8), rgba(10, 23, 26, 0.85));
+  overflow: hidden;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.45);
+  margin-bottom: 3.5rem;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: rgba(14, 62, 66, 0.6);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  margin: 0 0 1rem;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(122, 246, 214, 0.45), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(84, 197, 210, 0.35), transparent 60%);
+  filter: blur(12px);
+  opacity: 0.8;
+}
+
+.chat-section {
+  position: relative;
+}
+
+.chat-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.chat-window {
+  background: var(--surface-secondary);
+  border-radius: 22px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+
+.chat-window__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem 1.25rem;
+  border-bottom: 1px solid rgba(100, 212, 208, 0.2);
+  background: rgba(11, 45, 50, 0.5);
+}
+
+.chat-window__header h2 {
+  font-size: 1.35rem;
+  margin: 0 0 0.35rem;
+}
+
+.chat-window__subhead {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.chat-window__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(68, 196, 183, 0.15);
+  border: 1px solid rgba(122, 246, 214, 0.4);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.chat-window__messages {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: linear-gradient(180deg, rgba(6, 20, 22, 0.9), rgba(6, 16, 17, 0.65));
+}
+
+.chat-window__messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-window__messages::-webkit-scrollbar-thumb {
+  background: rgba(122, 246, 214, 0.35);
+  border-radius: 999px;
+}
+
+.chat-window__composer {
+  padding: 1.25rem 1.5rem 1.75rem;
+  background: rgba(11, 45, 50, 0.45);
+  border-top: 1px solid rgba(122, 246, 214, 0.2);
+}
+
+.chat-window__form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(7, 23, 25, 0.8);
+  border-radius: 16px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(100, 212, 208, 0.2);
+}
+
+.chat-window__form input[type="text"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+}
+
+.chat-window__form input::placeholder {
+  color: rgba(200, 236, 235, 0.45);
+}
+
+.chat-window__send {
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #00100f;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.chat-window__send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chat-window__send:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(122, 246, 214, 0.35);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 85%;
+}
+
+.user-message {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.bot-message {
+  align-self: flex-start;
+}
+
+.message-bubble {
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+}
+
+.user-message .message-bubble {
+  background: linear-gradient(135deg, rgba(122, 246, 214, 0.9), rgba(91, 205, 218, 0.85));
+  color: #002121;
+}
+
+.bot-message .message-bubble {
+  background: rgba(10, 40, 45, 0.85);
+  border: 1px solid rgba(122, 246, 214, 0.22);
+  color: var(--text-primary);
+}
+
+.message-meta {
+  font-size: 0.75rem;
+  color: rgba(214, 245, 245, 0.45);
+}
+
+.typing-indicator .message-bubble {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  background: rgba(10, 40, 45, 0.7);
+}
+
+.typing-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: rgba(122, 246, 214, 0.6);
+  animation: blink 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+.chat-tips {
+  background: var(--surface-primary);
+  border-radius: 22px;
+  padding: 2.25rem;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.chat-tips h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.chat-tips ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chat-tips__footer {
+  font-size: 0.85rem;
+  color: rgba(216, 240, 239, 0.6);
+  line-height: 1.5;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 960px) {
+  .landing {
+    padding-top: 3.5rem;
+  }
+
+  .chat-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-window {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 2.5rem 1.75rem;
+  }
+
+  .chat-window__header {
+    padding: 1.5rem 1.5rem 1.1rem;
+  }
+
+  .chat-window__messages {
+    padding: 1.5rem;
+  }
+
+  .chat-window__form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chat-window__send {
+    width: 100%;
+  }
+}

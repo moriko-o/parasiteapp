@@ -1,0 +1,53 @@
+<% content_for :title, "寄生虫チャットボット" %>
+
+<main class="landing">
+  <section class="hero">
+    <div class="hero__content">
+      <span class="hero__eyebrow">Parasite Navigator</span>
+      <h1>寄生虫チャットボット</h1>
+      <p>
+        寄生虫の世界を案内するバーチャルアシスタントです。生活環、感染経路、予防策など、
+        気になることを何でも質問してください。怖いだけじゃない寄生虫の生態を、好奇心と科学で紐解きましょう。
+      </p>
+    </div>
+    <div class="hero__glow" aria-hidden="true"></div>
+  </section>
+
+  <section class="chat-section" aria-labelledby="chatbot-heading">
+    <div class="chat-layout">
+      <div class="chat-window" data-controller="chat">
+        <div class="chat-window__header">
+          <div>
+            <h2 id="chatbot-heading">寄生虫コンシェルジュ</h2>
+            <p class="chat-window__subhead">寄生虫博士の視点からリアルタイムでガイドします。</p>
+          </div>
+          <span class="chat-window__status" data-chat-target="status">オンライン</span>
+        </div>
+        <div class="chat-window__messages" data-chat-target="messages" aria-live="polite"></div>
+        <div class="chat-window__composer">
+          <form data-action="submit->chat#submit" class="chat-window__form" autocomplete="off">
+            <label for="chat-input" class="visually-hidden">質問を入力</label>
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="例：魚から感染する寄生虫は？"
+              data-chat-target="input"
+              aria-label="寄生虫チャットボットへの質問"
+            >
+            <button type="submit" class="chat-window__send" data-chat-target="send">送信</button>
+          </form>
+        </div>
+      </div>
+
+      <aside class="chat-tips" aria-label="寄生虫の豆知識">
+        <h3>寄生虫の豆知識</h3>
+        <ul>
+          <li>寄生虫は宿主から栄養を得る生物で、医療・生態学の重要な研究対象です。</li>
+          <li>加熱や冷凍など正しい食品管理で、多くの寄生虫感染を防ぐことができます。</li>
+          <li>一部の寄生虫は宿主の行動を巧みに操ることで生存戦略を成功させます。</li>
+        </ul>
+        <p class="chat-tips__footer">チャットでの回答は教育目的です。体調に不安がある場合は医療機関に相談しましょう。</p>
+      </aside>
+    </div>
+  </section>
+</main>
