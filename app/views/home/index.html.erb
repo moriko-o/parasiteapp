@@ -1,0 +1,102 @@
+<% content_for :title, "寄生虫（きせいちゅう）チャットボット" %>
+
+<main class="landing">
+  <section class="hero">
+    <div class="hero__decor" aria-hidden="true">
+      <span class="hero__shape hero__shape--one"></span>
+      <span class="hero__shape hero__shape--two"></span>
+      <span class="hero__shape hero__shape--three"></span>
+    </div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Parasite Navigator</span>
+      <h1>
+        <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>
+        チャットボット
+        <span class="hero__sparkle" aria-hidden="true">★</span>
+      </h1>
+      <p>
+        <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>の<ruby><rb>世界</rb><rt>せかい</rt></ruby>を
+        <ruby><rb>案内</rb><rt>あんない</rt></ruby>するバーチャルアシスタントです。
+        <ruby><rb>生活環</rb><rt>せいかつかん</rt></ruby>や<ruby><rb>感染</rb><rt>かんせん</rt></ruby>の
+        <ruby><rb>経路</rb><rt>けいろ</rt></ruby>、<ruby><rb>予防策</rb><rt>よぼうさく</rt></ruby>など、
+        <ruby><rb>気</rb><rt>き</rt></ruby>になることをなんでも<ruby><rb>質問</rb><rt>しつもん</rt></ruby>してね。
+        <ruby><rb>怖い</rb><rt>こわい</rt></ruby>だけじゃない
+        <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>の<ruby><rb>生態</rb><rt>せいたい</rt></ruby>を、
+        <ruby><rb>好奇心</rb><rt>こうきしん</rt></ruby>と<ruby><rb>科学</rb><rt>かがく</rt></ruby>で
+        <ruby><rb>紐解</rb><rt>ひもと</rt></ruby>いていきましょう。
+      </p>
+    </div>
+  </section>
+
+  <section class="chat-section" aria-labelledby="chatbot-heading">
+    <div class="chat-layout">
+      <div class="chat-window" data-controller="chat">
+        <div class="chat-window__header">
+          <div>
+            <h2 id="chatbot-heading">
+              <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>
+              <ruby><rb>コンシェルジュ</rb><rt>こんしぇるじゅ</rt></ruby>
+            </h2>
+            <p class="chat-window__subhead">
+              <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>
+              <ruby><rb>博士</rb><rt>はかせ</rt></ruby>の<ruby><rb>視点</rb><rt>してん</rt></ruby>から
+              リアルタイムでガイドします。
+            </p>
+          </div>
+          <span class="chat-window__status" data-chat-target="status">オンライン</span>
+        </div>
+        <div class="chat-window__messages" data-chat-target="messages" aria-live="polite"></div>
+        <div class="chat-window__composer">
+          <form data-action="submit->chat#submit" class="chat-window__form" autocomplete="off">
+            <label for="chat-input" class="visually-hidden">しつもんをいれてね</label>
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="れい：さかなからうつるきせいちゅうは？"
+              data-chat-target="input"
+              aria-label="きせいちゅうちゃっとぼっとへのしつもん"
+            >
+            <button type="submit" class="chat-window__send" data-chat-target="send">おくる</button>
+          </form>
+        </div>
+      </div>
+
+      <aside class="chat-tips" aria-label="きせいちゅうのまめちしき">
+        <h3>
+          <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>の
+          <ruby><rb>豆知識</rb><rt>まめちしき</rt></ruby>
+        </h3>
+        <ul>
+          <li>
+            <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>は
+            <ruby><rb>宿主</rb><rt>やどぬし</rt></ruby>から<ruby><rb>栄養</rb><rt>えいよう</rt></ruby>を
+            <ruby><rb>得</rb><rt>え</rt></ruby>る<ruby><rb>生物</rb><rt>せいぶつ</rt></ruby>で、
+            <ruby><rb>医療</rb><rt>いりょう</rt></ruby>・<ruby><rb>生態学</rb><rt>せいたいがく</rt></ruby>の
+            <ruby><rb>重要</rb><rt>じゅうよう</rt></ruby>な<ruby><rb>研究対象</rb><rt>けんきゅうたいしょう</rt></ruby>です。
+          </li>
+          <li>
+            <ruby><rb>加熱</rb><rt>かねつ</rt></ruby>や<ruby><rb>冷凍</rb><rt>れいとう</rt></ruby>など
+            <ruby><rb>正</rb><rt>ただ</rt></ruby>しい<ruby><rb>食品管理</rb><rt>しょくひんかんり</rt></ruby>で、
+            たくさんの<ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby><ruby><rb>感染</rb><rt>かんせん</rt></ruby>を
+            <ruby><rb>防</rb><rt>ふせ</rt></ruby>ぐことができます。
+          </li>
+          <li>
+            <ruby><rb>一部</rb><rt>いちぶ</rt></ruby>の
+            <ruby><rb>寄生虫</rb><rt>きせいちゅう</rt></ruby>は<ruby><rb>宿主</rb><rt>やどぬし</rt></ruby>の
+            <ruby><rb>行動</rb><rt>こうどう</rt></ruby>を<ruby><rb>巧</rb><rt>たく</rt></ruby>みに
+            <ruby><rb>操</rb><rt>あやつ</rt></ruby>って
+            <ruby><rb>生存戦略</rb><rt>せいぞんせんりゃく</rt></ruby>を
+            <ruby><rb>成功</rb><rt>せいこう</rt></ruby>させます。
+          </li>
+        </ul>
+        <p class="chat-tips__footer">
+          チャットでの<ruby><rb>回答</rb><rt>かいとう</rt></ruby>は
+          <ruby><rb>教育目的</rb><rt>きょういくもくてき</rt></ruby>です。
+          <ruby><rb>体調</rb><rt>たいちょう</rt></ruby>に<ruby><rb>不安</rb><rt>ふあん</rt></ruby>があるときは
+          <ruby><rb>医療機関</rb><rt>いりょうきかん</rt></ruby>に
+          <ruby><rb>相談</rb><rt>そうだん</rt></ruby>しましょう。
+        </p>
+      </aside>
+    </div>
+  </section>
+</main>
